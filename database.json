@@ -2,8 +2,8 @@
   "lista": [
     {
       "desc": "Tarefa 1",
-      "state": false,
-      "id": 1
+      "id": 1,
+      "feito": false
     }
   ]
 }

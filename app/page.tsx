@@ -22,7 +22,7 @@ export default function Home() {
     const response = await fetch("/api/lista", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ desc: novo_item, state: false }),
+      body: JSON.stringify({ desc: novo_item }),
     });
     const data = await response.json();
     set_item([...lista, data]);
@@ -36,7 +36,7 @@ export default function Home() {
 
   const toggle_item = async (id) => {
     const item = lista.find((item) => item.id === id);
-    const update_item = { ...item, state: !item.feito };
+    const update_item = { ...item, feito: !item.feito };
     const response = await fetch(`/api/lista/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -55,15 +55,15 @@ export default function Home() {
         onChange={(e) => set_novo(e.target.value)}
         placeholder="Escreva nova tarefa aqui"
       />
-      <button onClick={add_item}>Adicionar Tarefa</button>
+      <button onClick={add_item}>Adicionar Item</button>
       <div>
         {Array.isArray(lista) &&
           lista.map((item) => (
             <Item
               key={item.id}
               item={item}
-              onDelete={delete_item}
               onToggle={toggle_item}
+              onDelete={delete_item}
             />
           ))}
       </div>

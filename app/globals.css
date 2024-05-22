@@ -34,7 +34,7 @@ h1 {
 }
 
 .item button {
-  background-color: #00f3fc;
+  background-color: #758500;
 }
 
 .item button:hover {
@@ -42,18 +42,17 @@ h1 {
 }
 
 .item_feito span {
-  text-decoration: line-through;
   color: #22ff00;
 }
 button {
   padding: 10px 15px;
   border: none;
-  background-color: #28a745;
+  background-color: #00eef7;
   color: #fff;
   cursor: pointer;
   border-radius: 4px;
 }
 
 button:hover {
-  background-color: #218838;
+  background-color: #0800fc;
 }
