@@ -22,7 +22,7 @@ export default function Home() {
     const response = await fetch("/api/lista", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text: novo_item, completed: false }),
+      body: JSON.stringify({ desc: novo_item, state: false }),
     });
     const data = await response.json();
     set_item([...lista, data]);
@@ -36,11 +36,11 @@ export default function Home() {
 
   const toggle_item = async (id) => {
     const item = lista.find((item) => item.id === id);
-    const updatedTask = { ...item, completed: !item.feito };
+    const update_item = { ...item, state: !item.feito };
     const response = await fetch(`/api/lista/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updatedTask),
+      body: JSON.stringify(update_item),
     });
     const data = await response.json();
     set_item(lista.map((item) => (item.id === id ? data : item)));
@@ -48,7 +48,7 @@ export default function Home() {
 
   return (
     <div className="container">
-      <h1>TODO List</h1>
+      <h1>Lista</h1>
       <input
         type="text"
         value={novo_item}

@@ -1,9 +1,9 @@
 {
   "lista": [
     {
-      "id": "1",
-      "descri": "item",
-      "state": false
+      "desc": "Tarefa 1",
+      "state": false,
+      "id": 1
     }
   ]
 }

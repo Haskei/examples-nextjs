@@ -16,7 +16,10 @@ input[type="text"] {
   background-color: #000000;
   box-shadow: 0 0 10px rgb(1, 47, 255);
 }
-.task {
+h1 {
+  color: #fff;
+}
+.item {
   display: flex;
   align-items: center;
   justify-content: space-between;

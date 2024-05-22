@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const apiURL = "http://localhost:3002/lista";
+const apiURL = "http://localhost:3001/lista";
 
 export async function GET() {
   try {
