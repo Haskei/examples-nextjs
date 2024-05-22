@@ -1,33 +1,30 @@
 import { NextResponse } from "next/server";
 
-const apiURL = "http://localhost:3001/tasks";
+const apiURL = "http://localhost:3002/lista";
 
 export async function GET() {
   try {
     const response = await fetch(apiURL);
-    const tasks = await response.json();
-    return NextResponse.json(tasks);
+    const lista = await response.json();
+    return NextResponse.json(lista);
   } catch (error) {
-    return NextResponse.json(
-      { error: "Failed to fetch tasks" },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: "Falha no fetch" }, { status: 500 });
   }
 }
 
 export async function POST(request) {
   try {
-    const newTask = await request.json();
+    const novo_item = await request.json();
     const response = await fetch(apiURL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newTask),
+      body: JSON.stringify(novo_item),
     });
-    const task = await response.json();
-    return NextResponse.json(task, { status: 201 });
+    const item = await response.json();
+    return NextResponse.json(item, { status: 201 });
   } catch (error) {
     return NextResponse.json(
-      { error: "Failed to create task" },
+      { error: "Falha ao criar o item" },
       { status: 500 },
     );
   }

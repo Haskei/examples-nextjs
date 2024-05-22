@@ -1,20 +1,20 @@
 import { NextResponse } from "next/server";
 
-const apiURL = "http://localhost:3001/tasks";
+const apiURL = "http://localhost:3002/lista";
 
 export async function PUT(request, { params }) {
   try {
-    const updatedTask = await request.json();
+    const update_item = await request.json();
     const response = await fetch(`${apiURL}/${params.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updatedTask),
+      body: JSON.stringify(update_item),
     });
-    const task = await response.json();
-    return NextResponse.json(task);
+    const item = await response.json();
+    return NextResponse.json(item);
   } catch (error) {
     return NextResponse.json(
-      { error: "Failed to update task" },
+      { error: "Falha no update" },
       { status: 500 },
     );
   }
@@ -26,7 +26,7 @@ export async function DELETE(_, { params }) {
     return NextResponse.json(null, { status: 204 });
   } catch (error) {
     return NextResponse.json(
-      { error: "Failed to delete task" },
+      { error: "Falha ao deletar" },
       { status: 500 },
     );
   }

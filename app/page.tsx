@@ -9,10 +9,10 @@ export default function Home() {
   const [novo_item, set_novo] = useState("");
 
   useEffect(() => {
-    fetchTasks();
+    Fetch_item();
   }, []);
 
-  const fetchTasks = async () => {
+  const Fetch_item = async () => {
     const response = await fetch("/api/lista");
     const data = await response.json();
     set_item(Array.isArray(data) ? data : []);
